@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Obtener la información de geolocalización desde index.php
     function getLocationData() {
-        return fetch('//98.81.246.40/php-intro-connection/index.php')
+        return fetch('http://98.81.246.40/php-intro-connection/index.php')
             .then(response => response.json())
             .then(data => {
                 const continent = data.continent_name || "Desconocido";
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             getLocationData().then(location => {
                 const continent = location.continent;
                 console.log(`Buscando información por continente: ${continent}`);
-                fetch(`//98.81.246.40/php-intro-connection/getRecords.php?table=city&continent=${continent}`)
+                fetch(`http://98.81.246.40/php-intro-connection/getRecords.php?table=city&continent=${continent}`)
                     .then(response => response.json())
                     .then(data => {
                         console.log('Resultados por continente:', data);
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             getLocationData().then(location => {
                 const country = location.country;
                 console.log(`Buscando información por país: ${country}`);
-                fetch(`//98.81.246.40/php-intro-connection/getRecords.php?table=city&country=${country}`)
+                fetch(`http://98.81.246.40/php-intro-connection/getRecords.php?table=city&country=${country}`)
                     .then(response => response.json())
                     .then(data => {
                         console.log('Resultados por país:', data);
